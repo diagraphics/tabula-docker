@@ -1,0 +1,7 @@
+services:
+  tabula:
+    build: .
+    image: ghcr.io/diagraphics/tabula:dev
+    volumes:
+      - ./pdf:/pdf
+      - ./out:/out
