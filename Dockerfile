@@ -20,10 +20,9 @@ RUN ./jlink.sh tabula.jar
 
 
 FROM gcr.io/distroless/java-base-debian12
-WORKDIR /app
 
-COPY --from=builder /build/tabula.jar .
+COPY --from=builder /build/tabula.jar /opt/tabula/tabula.jar
 COPY --from=builder /build/target/runtime /opt/java
 
-ENTRYPOINT ["/opt/java/bin/java", "-jar", "/app/tabula.jar"]
+ENTRYPOINT ["/opt/java/bin/java", "-jar", "/opt/tabula/tabula.jar"]
 CMD ["--help"]
